@@ -1,0 +1,282 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Space Grotesk', 'Plus Jakarta Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base Body Styles conforming to Frosted Glass theme */
+body {
+  font-family: var(--font-sans);
+  background: radial-gradient(circle at 0% 0%, #f1f5f9 0%, #e2e8f0 50%, #dbeafe 100%) !important;
+  color: #1e293b;
+  min-height: 100vh;
+  position: relative;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s ease;
+  overflow-x: hidden;
+}
+
+/* Dark Mode Background Gradient */
+.dark body {
+  background: radial-gradient(circle at 0% 0%, #0d1222 0%, #060913 50%, #111029 100%) !important;
+  color: #f1f5f9;
+}
+
+/* Mesh Backdrop Accents for immersive depth */
+body::before {
+  content: "";
+  position: fixed;
+  top: -10%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  background: #60a5fa; /* bg-blue-400 */
+  opacity: 0.2;
+  border-radius: 50%;
+  filter: blur(125px);
+  pointer-events: none;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -10%;
+  left: -10%;
+  width: 400px;
+  height: 400px;
+  background: #818cf8; /* bg-indigo-400 */
+  opacity: 0.15;
+  border-radius: 50%;
+  filter: blur(105px);
+  pointer-events: none;
+  z-index: -2;
+}
+
+.dark body::before {
+  background: #2563eb;
+  opacity: 0.12;
+}
+
+.dark body::after {
+  background: #4f46e5;
+  opacity: 0.1;
+}
+
+/* Frosted Glass Core Utility Definition */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 12px 32px 0 rgba(148, 163, 184, 0.06) !important;
+}
+
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.35) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 12px 32px 0 rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Automatically apply Frosted Glass aesthetic to existing app cards and wrappers */
+.bg-white,
+.bg-white\/50,
+.bg-white.rounded-3xl,
+.bg-white.rounded-2xl,
+.bg-white.rounded-xl,
+.dark .bg-slate-900,
+.dark .bg-slate-900\/30,
+.dark .bg-slate-950,
+.py-12.bg-slate-50\/50,
+.bg-slate-50\/50 {
+  background: rgba(255, 255, 255, 0.22) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 10px 30px -10px rgba(31, 38, 135, 0.05) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .bg-white,
+.dark .bg-white\/50,
+.dark .bg-white.rounded-3xl,
+.dark .bg-white.rounded-2xl,
+.dark .bg-white.rounded-xl,
+.dark .bg-slate-900,
+.dark .bg-slate-900\/30,
+.dark .bg-slate-950,
+.dark .py-12.bg-slate-50\/50,
+.dark .bg-slate-50\/50 {
+  background: rgba(15, 23, 42, 0.35) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Glass-morphic inputs, textareas, selects */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+textarea,
+select {
+  background: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.45) !important;
+  color: #0f172a !important;
+  font-family: var(--font-sans);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="password"]::placeholder,
+textarea::placeholder {
+  color: #64748b !important;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  background: rgba(255, 255, 255, 0.5) !important;
+  border-color: rgba(37, 99, 235, 0.5) !important;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.15) !important;
+  outline: none !important;
+}
+
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark input[type="search"],
+.dark textarea,
+.dark select {
+  background: rgba(15, 23, 42, 0.45) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #f1f5f9 !important;
+}
+
+.dark input[type="text"]::placeholder,
+.dark input[type="email"]::placeholder,
+.dark input[type="password"]::placeholder,
+.dark textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.dark input[type="text"]:focus,
+.dark input[type="email"]:focus,
+.dark input[type="password"]:focus,
+.dark textarea:focus,
+.dark select:focus {
+  background: rgba(15, 23, 42, 0.65) !important;
+  border-color: rgba(96, 165, 250, 0.5) !important;
+  box-shadow: 0 0 12px rgba(96, 165, 250, 0.15) !important;
+}
+
+/* Navigation Menu Enhancements */
+#app-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45) !important;
+}
+
+.dark #app-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Frosted Glass Footer styling matching bottom bar of theme HTML */
+#app-footer {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.45) !important;
+  color: #334155 !important;
+}
+
+#app-footer h3, #app-footer h4, #app-footer span, #app-footer a, #app-footer p, #app-footer button {
+  color: #0f172a !important;
+}
+
+#app-footer p, #app-footer span, #app-footer text {
+  opacity: 0.8;
+}
+
+.dark #app-footer {
+  background: rgba(15, 23, 42, 0.5) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  color: #cbd5e1 !important;
+}
+
+.dark #app-footer h3, .dark #app-footer h4, .dark #app-footer span, .dark #app-footer a, .dark #app-footer button, .dark #app-footer p {
+  color: #f1f5f9 !important;
+}
+
+/* Custom interactive triggers / glass list highlights */
+.hover\:bg-blue-600:hover {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+/* Custom visual highlights */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(135deg, #2563eb, #3b82f6, #8b5cf6);
+}
+
+.dark .gradient-text {
+  background-image: linear-gradient(135deg, #60a5fa, #818cf8, #c084fc);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+/* Reading Progress Line animation class helper */
+@keyframes progress {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Normalise text colors of administrative elements override footer importants */
+.fixed.z-50 h2, .fixed.z-50 h3, .fixed.z-50 h4, .fixed.z-50 p, .fixed.z-50 span, .fixed.z-50 label, .fixed.z-50 input, .fixed.z-50 select, .fixed.z-50 button, .fixed.z-50 div {
+  color: inherit !important;
+}
+

@@ -1,0 +1,6 @@
+{
+  "name": "JB Blogging",
+  "description": "A premium, professional blogging platform for modern creators, authors, and readers to discover ideas, share knowledge, and inspire the world.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
